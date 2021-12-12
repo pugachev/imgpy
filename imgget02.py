@@ -5,7 +5,7 @@ import io
 import re
 
 #対象のURL 毎回変わる
-url = 'https://heart-net.xyz/archives/12298191.html'
+url = 'http://anacap.doorblog.jp/archives/57964364.html'
 session = requests.session()
 #sessionを変更する 必須ではない また効果も不明
 headers = {
@@ -20,10 +20,13 @@ soup = BeautifulSoup(res.text,'html.parser')
 pattern = re.compile(r'jpg$')
 #対象のURLの構造からa hrefを取得する必要がある
 img_tags = soup.find_all('a')
+# print(img_tags)
 for i,img_tag in enumerate(img_tags):
     #色々な構造からhrefのみを取り出す
     img_url = img_tag.get('href')
     #いろんなhrefタグの中から末尾がjpgのものをさがす
-    if pattern.search(img_url):
+    if img_url is not None and pattern.search(img_url):
+        #jpgとし保存する
         img = Image.open(io.BytesIO(requests.get(img_url).content))
-        img.save(f'img/{i+1}.jpg')
+        img.save(f'img/{(i+1800)+1}.jpg')
+print('DL完了！')
