@@ -20,7 +20,6 @@ soup = BeautifulSoup(res.text,'html.parser')
 pattern = re.compile(r'jpg$')
 #対象のURLの構造からa hrefを取得する必要がある
 img_tags = soup.find_all('a')
-# print(img_tags)
 for i,img_tag in enumerate(img_tags):
     #色々な構造からhrefのみを取り出す
     img_url = img_tag.get('href')
