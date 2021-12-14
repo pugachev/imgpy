@@ -5,7 +5,7 @@ import io
 import re
 
 #対象のURL 毎回変わる
-url = 'http://anacap.doorblog.jp/archives/58796730.html'
+url = 'http://caplogger.com/blog-entry-50605.html'
 session = requests.session()
 #sessionを変更する 必須ではない また効果も不明
 headers = {
