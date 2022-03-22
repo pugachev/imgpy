@@ -5,7 +5,7 @@ import io
 import re
 
 #対象のURL 毎回変わる
-url = 'http://caplogger.com/blog-entry-50605.html'
+url = 'http://anacap.doorblog.jp/archives/59038115.html'
 session = requests.session()
 #sessionを変更する 必須ではない また効果も不明
 headers = {
@@ -27,5 +27,5 @@ for i,img_tag in enumerate(img_tags):
     if img_url is not None and pattern.search(img_url):
         #jpgとし保存する
         img = Image.open(io.BytesIO(requests.get(img_url).content))
-        img.save(f'img/{(i+1800)+1}.jpg')
+        img.save(f'img/{(i+1930)+1}.jpg')
 print('DL完了！')
